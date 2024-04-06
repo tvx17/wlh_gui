@@ -1,0 +1,10 @@
+{
+  "itemsInCurrent": "{item} in {parent}",
+  "addTitle": "Add {item}",
+  "deleteMode": "Delete {item}",
+  "deleteTitle": "Delete {item}",
+  "addMessage": "Please enter a summary for the new {item}!",
+  "deleteMessage": "Do you really want to delete this {item}",
+  "noItemsFoundMessageInParent": "No {item} found in this {parent}!",
+  "noItemsFoundMessage": "No {item} found!"
+}

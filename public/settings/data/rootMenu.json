@@ -1,0 +1,94 @@
+[
+  {
+    "label": "projects",
+    "value": "projects",
+    "icon": "fa-solid fa-folder",
+    "selected": false,
+    "disabled": false
+  },
+  {
+    "label": "users",
+    "value": "users",
+    "icon": "fa-solid fa-users",
+    "selected": false,
+    "disabled": false
+  },
+  {
+    "label": "books",
+    "value": "books",
+    "icon": "fa-solid fa-book",
+    "selected": false,
+    "disabled": false
+  },
+  {
+    "label": "chapters",
+    "value": "chapters",
+    "icon": "fa-solid fa-layer-group",
+    "selected": false,
+    "disabled": false
+  },
+  {
+    "label": "scenes",
+    "icon": "fa-solid fa-file-pen",
+    "value": "scenes",
+    "selected": false,
+    "disabled": false
+  },
+  {
+    "label": "characters",
+    "icon": "fa-solid fa-person",
+    "value": "characters",
+    "selected": false,
+    "disabled": true
+  },
+  {
+    "label": "objects",
+    "icon": "fa-solid fa-cube",
+    "value": "objects",
+    "selected": false,
+    "disabled": true
+  },
+  {
+    "label": "locations",
+    "icon": "fa-solid fa-city",
+    "value": "locations",
+    "selected": false,
+    "disabled": true
+  },
+  {
+    "label": "relations",
+    "icon": "fa-solid fa-link",
+    "value": "relations",
+    "selected": false,
+    "disabled": true
+  },
+  {
+    "label": "storylines",
+    "icon": "fa-solid fa-bookmark",
+    "value": "storylines",
+    "selected": false,
+    "disabled": true
+  },
+  {
+    "label": "settings",
+    "icon": "fa-solid fa-cog",
+    "value": "settings",
+    "selected": false,
+    "disabled": true
+
+  },
+  {
+    "label": "application",
+    "icon": "fa-solid fa-cloud",
+    "value": "application",
+    "selected": false,
+    "disabled": true
+  },
+  {
+    "label": "worldbuilding",
+    "icon": "fa-solid fa-cloud",
+    "value": "worldbuilding",
+    "selected": false,
+    "disabled": true
+  }
+]

@@ -1,0 +1,7 @@
+{
+  "children": "Chapters in book:",
+  "addBookTitle": "Add chapter",
+  "deleteBookTitle": "Delete chapters",
+  "addBookMessage": "Please enter a summary for the new chapter.",
+  "notFoundMessage": "No chapters found in this book."
+}

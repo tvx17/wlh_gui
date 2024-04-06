@@ -1,0 +1,7 @@
+{
+  "children": "Books in project:",
+  "addChildTitle": "Add book",
+  "deleteChildTitle": "Delete books",
+  "addChildMessage": "Please enter a summary for the new book.",
+  "notChildMessage": "No books found in this project."
+}
