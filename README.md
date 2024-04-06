@@ -1,41 +1,10 @@
-# WLH (wlh)
+# WLH - Writer's little helper
 
-WLH
+# Attention, this program is still in development and has not yet reached the full extent of features it is intended to have.
 
-## Install the dependencies
-```bash
-yarn
-# or
-npm install
-```
+## What is WLH
+WLH is a program designed to help you write and manage your books.
 
-### Start the app in development mode (hot-code reloading, error reporting, etc.)
-```bash
-quasar dev
-```
+Currently, we are in the process of implementing the first development release, and the current repository for it is 24-1_dev.
 
-
-### Lint the files
-```bash
-yarn lint
-# or
-npm run lint
-```
-
-
-### Format the files
-```bash
-yarn format
-# or
-npm run format
-```
-
-
-
-### Build the app for production
-```bash
-quasar build
-```
-
-### Customize the configuration
-See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-vite/quasar-config-js).
+Documentation for the program will be created on the following page: https://tvx17.github.io
