@@ -1,11 +1,11 @@
 import { Common } from './Common';
 
-export class Releases extends Common {
+export class I18n extends Common {
   constructor() {
     super();
   }
 }
 
-export function releases() {
-  return new Releases();
+export function i18n() {
+  return new I18n();
 }

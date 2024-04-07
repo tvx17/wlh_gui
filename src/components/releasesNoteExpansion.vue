@@ -15,26 +15,33 @@ const props = defineProps(
 
 const releaseInfos = ref({});
 
-onMounted(async () => {
+const loadReleases = async () => {
   releaseInfos.value = await application().getReleaseNotes(props.release);
-});
+};
 
 </script>
 
 <template>
-  {{ props.release }}
-  <div v-if="Object.keys(releaseInfos).length > 0">
-    <e-release-notes-row :value="releaseInfos['version']" label="Version" />
-    <e-release-notes-row :value="releaseInfos['buildDate']" label="Build date" />
-    <e-release-notes-row :value="releaseInfos['buildNumber']" label="Build number" />
-    <q-separator />
-    <e-release-notes-row :value="releaseInfos['description']" />
-    <q-separator />
-    <e-release-notes-row :value="releaseInfos['repository']" is-link label="Repository" />
+  <q-expansion-item
+    dense
+    header-class="bg-grey-3 text-h6"
+    :label="props.release"
+    @before-show="loadReleases"
+    @hide="releaseInfos.value = {}"
+  >
+    <div v-if="Object.keys(releaseInfos).length > 0">
+      <e-release-notes-row :value="releaseInfos['version']" label="Version" />
+      <e-release-notes-row :value="releaseInfos['buildDate']" label="Build date" />
+      <e-release-notes-row :value="releaseInfos['buildNumber']" label="Build number" />
+      <q-separator />
+      <e-release-notes-row :value="releaseInfos['description']" />
+      <q-separator />
+      <e-release-notes-row :value="releaseInfos['repository']" is-link label="Repository" />
 
-    <br />
-    <c-release-notes-changelog :value="releaseInfos['changelog']" :version="props.release" />
-  </div>
+      <br />
+      <c-release-notes-changelog :value="releaseInfos['changelog']" :version="props.release" />
+    </div>
+  </q-expansion-item>
 </template>
 
 <style scoped>

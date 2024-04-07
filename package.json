@@ -1,7 +1,9 @@
 {
   "name": "wlh",
-  "version": "0.0.1",
-  "description": "WLH",
+  "version": "24-1",
+  "buildNumber": 13,
+  "buildDate": "2024-04-06 18:59:09 (TZ: Europe/Berlin)",
+  "description": "WLH - Writer's little helper",
   "productName": "WLH",
   "author": "tvx17 <chris19177@gmail.com>",
   "private": true,
@@ -9,19 +11,24 @@
     "lint": "eslint --ext .js,.ts,.vue ./",
     "format": "prettier --write \"**/*.{js,ts,vue,scss,html,md,json}\" --ignore-path .gitignore",
     "test": "echo \"No test specified\" && exit 0",
-    "dev": "quasar dev",
-    "build": "quasar build"
+    "dev": "node helpers.js -b && quasar dev",
+    "dev:electron": "node helpers.js -b && quasar dev -m electron",
+    "dev:pwa": "node helpers.js -b && quasar dev -m pwa",
+    "dev:spa": "node helpers.js -b && quasar dev -m spa"
   },
   "dependencies": {
+    "@octokit/rest": "^20.1.0",
     "@quasar/extras": "^1.16.4",
     "axios": "^1.2.1",
+    "dayjs": "^1.11.10",
+    "inquirer": "^9.2.17",
+    "isomorphic-git": "^1.25.7",
+    "knex": "^3.1.0",
     "quasar": "^2.8.0",
+    "sqlite3": "^5.1.7",
     "vue": "^3.4.18",
     "vue-i18n": "^9.2.2",
-    "vue-router": "^4.0.12",
-    "knex": "^3.1.0",
-    "dayjs": "^1.11.10",
-    "sqlite3": "^5.1.7"
+    "vue-router": "^4.0.12"
   },
   "devDependencies": {
     "@intlify/vite-plugin-vue-i18n": "^3.3.1",

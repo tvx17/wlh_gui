@@ -15,7 +15,7 @@ const emit = defineEmits(['on:closeDialog']);
 
 const _dialogOpen = ref(props.dialogOpen);
 const releases = ref([]);
-const releaseInfos = ref({});
+const buildData = ref({});
 
 watch(() => props.dialogOpen, (value) => {
   _dialogOpen.value = value;
@@ -26,24 +26,24 @@ watch(() => props.dialogOpen, (value) => {
 
 const loadReleases = async () => {
   releases.value = await application().getRelease();
-  releaseInfos.value[releases.value[0]] = await application().getReleaseNotes(releases.value[0]);
+  buildData.value = await application().getBuildData();
 };
 </script>
 
 <template>
   <q-dialog v-model="_dialogOpen" persistent>
-    <q-card v-if="Object.keys(releaseInfos).length > 0" style="min-width: 75%">
+    <q-card v-if="releases.length > 0" style="min-width: 75%">
       <q-card-section>
         <q-card-section class="text-h6">
           <q-bar class="bg-white">
-            WLH - Writer's little helper
+            <span>WLH - Writer's little helper</span>
             <q-space />
             <q-btn dense flat icon="close" round @click="emit('on:closeDialog')" />
           </q-bar>
         </q-card-section>
       </q-card-section>
       <q-card-section>
-        <c-release-note :release="releases[0]" />
+        <c-release-note :release="releases[0]" :buildData="buildData" />
         <q-separator />
         <div v-if="releases.length > 1">
           <br />

@@ -1,11 +1,27 @@
 <script lang="ts" setup>
-import { ref } from 'vue';
+import cReleasesDialog from 'src/components/releasesDialog.vue';
+import cNewReleaseDialog from 'src/components/newReleaseDialog.vue';
+import { useWLH } from 'src/WLH';
+import { onMounted, ref } from 'vue';
+
+const wlh = useWLH();
 
 const leftDrawerOpen = ref(false);
+const releaseDialogOpen = ref(false);
+const newsDialogOpen = ref(false);
+
+
 
 function toggleLeftDrawer() {
   leftDrawerOpen.value = !leftDrawerOpen.value;
 }
+onMounted(() => {
+  if (!localStorage.getItem('firstStart')) {
+    newsDialogOpen.value = true;
+    localStorage.setItem('firstStart', 'true');
+  }
+});
+
 </script>
 <template>
   <q-layout view="lHh Lpr lFf">
@@ -21,7 +37,7 @@ function toggleLeftDrawer() {
                 />-->
 
         <q-btn v-if="$q.screen.gt.xs" class="q-ml-xs" flat no-caps no-wrap>
-          <q-toolbar-title class="text-weight-bold" shrink>
+          <q-toolbar-title class="text-weight-bold" shrink @click="releaseDialogOpen = true">
             WLH
           </q-toolbar-title>
         </q-btn>
@@ -114,6 +130,14 @@ function toggleLeftDrawer() {
                   <q-tooltip>Coming soon</q-tooltip>
                 </q-item>
                 <q-separator />
+                <q-item clickable :href="'https://tvx17.github.io'" target="_blank">
+                  <q-item-section avatar>
+                    <q-icon name="fa-solid fa-info" size="xs" />
+                  </q-item-section>
+                  <q-item-section>Help</q-item-section>
+                  <q-tooltip>Coming soon</q-tooltip>
+                </q-item>
+                <q-separator />
                 <q-item clickable disable>
                   <q-item-section avatar>
                     <q-icon name="fa-solid fa-right-from-bracket" size="xs" />
@@ -128,17 +152,20 @@ function toggleLeftDrawer() {
         </div>
       </q-toolbar>
     </q-header>
-<!--    <q-drawer
-      v-model="leftDrawerOpen"
-      bordered
-      show-if-above
-    >
-    </q-drawer>-->
+    <!--    <q-drawer
+          v-model="leftDrawerOpen"
+          bordered
+          show-if-above
+        >
+        </q-drawer>-->
 
     <q-page-container>
       <router-view />
     </q-page-container>
   </q-layout>
+  <c-releases-dialog :dialog-open="releaseDialogOpen" @on:closeDialog="releaseDialogOpen = false"/>
+  <c-new-release-dialog :dialog-open="newsDialogOpen" @on:closeDialog="newsDialogOpen = false"/>
+
 </template>
 
 

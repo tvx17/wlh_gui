@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import cReleaseNote from 'src/components/releasesNote.vue';
-import cReleaseNoteExpansion from 'src/components/releasesNoteExpansion.vue';
+import cReleaseNotesChangelogPart from 'src/components/releaseNotesChangelogPart.vue';
+import eReleaseNotesRow from 'src/elements/releaseNotesRow.vue';
 import { application } from 'src/entities/Application';
 import { ref, watch } from 'vue';
 
@@ -26,7 +26,7 @@ watch(() => props.dialogOpen, (value) => {
 
 const loadReleases = async () => {
   releases.value = await application().getRelease();
-  releaseInfos.value[releases.value[0]] = await application().getReleaseNotes(releases.value[0]);
+  releaseInfos.value = await application().getReleaseNotes(releases.value[0]);
 };
 </script>
 
@@ -36,22 +36,23 @@ const loadReleases = async () => {
       <q-card-section>
         <q-card-section class="text-h6">
           <q-bar class="bg-white">
-            WLH - Writer's little helper
+            NEW RELEASE of WLH - Writer's little helper
             <q-space />
+
             <q-btn dense flat icon="close" round @click="emit('on:closeDialog')" />
           </q-bar>
         </q-card-section>
       </q-card-section>
       <q-card-section>
-        <c-release-note :release="releases[0]" />
+        <e-release-notes-row :value="releaseInfos['version']" label="Version" />
+        <e-release-notes-row :value="releaseInfos['buildDate']" label="Build date" />
+        <e-release-notes-row :value="releaseInfos['description']" />
         <q-separator />
-        <div v-if="releases.length > 1">
-          <br />
-          <div class="text-weight-bold">Older releases</div>
-          <div v-for="(release, index) in releases" :key="index">
-            <c-release-note-expansion v-if="index > 0" :release="release" />
-          </div>
-        </div>
+        <br/>
+        <c-release-notes-changelog-part v-if="releaseInfos['changelog'].hasOwnProperty('added')"
+                                        :data="releaseInfos['changelog'].added"
+                                        name="New features"
+                                        simple-view />
       </q-card-section>
     </q-card>
   </q-dialog>

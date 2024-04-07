@@ -22,6 +22,9 @@ import { structures } from 'src/entities/Structure';
 import { universes } from 'src/entities/Universes';
 import { universeSections } from 'src/entities/UniverseSections';
 import { users } from 'src/entities/Users';
+import { data } from 'src/entities/Data';
+import { application } from 'src/entities/Application';
+import { i18n } from 'src/entities/I18n';
 // ------------------------------------------------------ Store
 import * as main from 'src/store';
 // ------------------------------------------------------ Supporting
@@ -71,7 +74,10 @@ export function useEntities() {
     structures,
     universes,
     universeSections,
-    users
+    users,
+    data,
+    application,
+    i18n
   };
 }
 
@@ -111,7 +117,10 @@ export function useWLH() {
       structures,
       universes,
       universeSections,
-      users
+      users,
+      data,
+      application,
+      i18n
     },
     Store: { main },
     $r: {router: useRouter(), route: useRoute()},

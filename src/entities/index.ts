@@ -3,7 +3,9 @@ import { Books } from './Books';
 import { Chapters } from './Chapters';
 import { ChapterSections } from './ChapterSections';
 import { Characters } from './Characters';
-
+import {Application} from './Application';
+import {I18n} from './I18n';
+import {Data} from './Data';
 
 import { Forms } from './Forms';
 import { Locations } from './Locations';
@@ -77,6 +79,16 @@ export function users() {
 export function settings() {
   return new Settings();
 }
+export function application() {
+  return new Application();
+}
+export function i18n() {
+  return new I18n();
+}
+export function data() {
+  return new Data();
+}
+
 
 export function entity(tableName: string) {
   return new Common(tableName);

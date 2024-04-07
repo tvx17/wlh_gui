@@ -1,36 +1,20 @@
 {
-  "version": "dummy",
-  "buildDate": "Not yet released",
-  "buildNumber": 1,
-  "description": "The first official release of WLH! CAUTION: Application is still under heavy development, and may not be stable and have a lack of features. Please report any bugs to the developer.",
-  "repository": "https://github.com/tvx17/wlh/tree/24-1",
+  "version": "Dappi",
+  "buildDate": "Long time ago in a galaxy far, far away...",
+  "buildNumber": 120,
+  "description": "A simple web application that allows users to create, read, update, and delete notes.",
+  "repository": "https://github.com/tvx17/wlh/tree/dappi",
   "changelog": {
     "added": [
       {
         "ref": "50279260",
-        "text": "First official release of WLH!"
+        "text": "Added a new feature that allows users to delete notes."
       }
     ],
     "changed": [
       {
         "ref": "50279260",
         "text": "Updated the version number to 24-1."
-      },
-      {
-        "ref": "50279260",
-        "text": "Updated the build date to the current date."
-      },
-      {
-        "ref": "50279260",
-        "text": "Updated the build number to 1."
-      },
-      {
-        "ref": "50279260",
-        "text": "Updated the description to reflect the current state of the application."
-      },
-      {
-        "ref": "50279260",
-        "text": "Updated the repository link to the current repository."
       }
     ],
     "deprecated": [
