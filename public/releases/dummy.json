@@ -1,0 +1,6 @@
+{
+  "version": "24-1_dev",
+  "buildDate": "2019-01-24T12:00:00.000Z",
+  "buildNumber": 1,
+  "description": "A simple example of a custom widget that displays a list of items in a table.",
+}
