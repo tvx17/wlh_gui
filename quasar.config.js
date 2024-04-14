@@ -11,6 +11,9 @@
 
 const { configure } = require('quasar/wrappers');
 const path = require('path');
+const fs = require('fs');
+
+const token = JSON.parse(fs.readFileSync('C:\\Users\\ckoeste1\\OneDrive - Axel Springer SE\\.gh', 'utf8'));
 
 module.exports = configure(function (/* ctx */) {
   return {
@@ -186,7 +189,7 @@ module.exports = configure(function (/* ctx */) {
 
       inspectPort: 5858,
 
-      bundler: 'packager', // 'packager' or 'builder'
+      bundler: 'builder', // 'packager' or 'builder'
 
       packager: {
         // https://github.com/electron-userland/electron-packager/blob/master/docs/api.md#options
@@ -204,7 +207,18 @@ module.exports = configure(function (/* ctx */) {
       builder: {
         // https://www.electron.build/configuration/configuration
 
-        appId: 'wlh'
+        appId: 'wlh',
+        artifactName: 'wlh.${ext}',
+        nsis: {
+          oneClick: false,
+          allowToChangeInstallationDirectory: true
+        },
+        publish: {
+          provider: 'github',
+          owner: 'tvx17',
+          repo: 'wlh',
+          token: token.token
+        }
       }
     },
 
